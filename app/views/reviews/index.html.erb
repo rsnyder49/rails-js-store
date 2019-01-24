@@ -1,0 +1,7 @@
+<h1>Reviews for <%= @item.title %></h1>
+<%= link_to 'Back', item_path(@item), class: "link back" %>
+<ul>
+    <% @reviews.each do |review| %>
+    <li><a href= <%= item_review_path(comment.item_id,review.id) %>><%= review.content %></a></li>
+    <% end %>
+</ul>

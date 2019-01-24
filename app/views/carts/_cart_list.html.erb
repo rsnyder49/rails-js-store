@@ -1,0 +1,5 @@
+<h4><%= item.name %></h4>
+  <%= form_for order_item %>
+    <h4>Unit Price: <%= number_to_currency order_item.unit_price %></h4>
+    <%= f.number_field :quantity, value: order_item.quantity.to_i %>
+    <h4>Total Price: <%= number_to_currency order_item.total_price %></h4>

@@ -1,0 +1,8 @@
+<% if current_user %>
+<h1>Welcome to the Shop <%= current_user.username %></h1>
+<% else %>
+<h1>Welcome to the Shop</h1>
+<%= link_to 'Sign Up', signup_path, class: 'link back' %> Or <%= link_to 'Log in', login_path, class: :button %>
+<% end %>
+<h4>Top Sellers</h4>
+<a href=<%= items_path %>> View all items </a>

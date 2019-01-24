@@ -1,0 +1,5 @@
+<% if order_items.size === 0 %>
+<p>There are no Items in your cart </p>
+<% else order_items.each do |item| %>
+  <%= render 'carts/cart_list', item: order_item.item, order_item: order_item, show_total: true %>
+<% end %>

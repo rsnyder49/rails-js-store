@@ -1,0 +1,31 @@
+<%= form_for(user) do |f| %>
+<% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2>There was an error: </h2>
+      <ul>
+        <% user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<br>
+    <%= f.label :username %> <br>
+<div class="field <%= ' field_with_errors' if user.errors[:username].any? %>">
+    <%= f.text_field :username, class: :input %>
+</div>
+<br>
+<div>
+    <%= f.label :password %> <br>
+    <%= f.password_field :password, class: :input %>
+</div>
+<br>
+    <%= f.label :balance %> <br>
+<div class="field <%= ' field_with_errors' if user.errors[:balance].any? %>">
+    <%= f.number_field :balance, step: :any, class: :input %>
+</div>
+<br><br>
+    <%= link_to 'Back', root_path, class: "link back" %>
+    <%= f.submit 'Submit', class: :button %>
+<% end %>

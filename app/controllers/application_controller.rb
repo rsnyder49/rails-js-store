@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :current_order
+  helper_method :admin?
 
   def current_user
     if logged_in?
@@ -32,5 +33,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin?
+    if current_user
+      current_user.admin
+    else
+      nil
+    end
+  end
+
+  def admin_only
+    if !admin?
+      flash[:error] = "Only admins can access that page."
+      redirect_to items_path
+    end
+  end
 
 end

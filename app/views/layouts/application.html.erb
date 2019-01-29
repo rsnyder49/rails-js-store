@@ -17,6 +17,9 @@
         <li><%= render "layouts/cart_text" %></li>
         <li><a href="/logout">Log Out</a></li>
       </ul>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
     <%= yield %>
   </body>
 </html>

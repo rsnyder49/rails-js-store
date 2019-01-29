@@ -1,3 +1,10 @@
-<h3><%= @user.username %> posted on <%= @item.name %></h3>
-<p><%= @review.content %></p>
-<%= link_to 'Back', item_path(@review.item_id), class: "link back" %>
+<h2><%= @item.name %> Reviews</h2>
+<% @reviews.each do |review| %>
+<div class='item-index'>
+  <div class='container'>
+    <h4><%= @user.username %>'s Review</h4>
+    <p><%= review.content %></p>
+  </div>
+</div>
+<% end %>
+<%= link_to 'Back', item_path(@review), class: "link back" %>

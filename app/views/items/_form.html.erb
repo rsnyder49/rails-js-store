@@ -1,0 +1,12 @@
+
+    <%= f.label :img_url %> <br>
+    <%= f.text_field :img_url, class: :input %> <br> <br>
+
+    <% if params[:id] %>
+        <%= link_to 'Back', item_path(item), class: "link back" %>
+        <%= f.submit 'Update Listing', class: :button %>
+        <%= link_to 'Delete Listing', item_path(item), method: :delete, class: "link back" %>
+    <% else %>
+        <%= link_to 'Back', root_path, class: "link back" %>
+        <%= f.submit 'Create New Listing', class: :button %>
+    <% end %>

@@ -1,0 +1,6 @@
+<%= form_for :review, url: item_reviews_path(params[:item_id]), method: :post do |f| %>
+    <%= f.label :content %> <br>
+    <textarea rows="10" cols="50" <%= f.text_field :content, class: :input %></textarea><br> <br>
+    <%= link_to 'Back', item_path(params[:item_id]), class: "link back" %>
+    <%= f.submit 'Submit', class: :button %>
+<% end %>

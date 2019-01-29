@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if logged_in?
-      User.find(session[:user_id])
+      User.find_by(id: session[:user_id])
     else
       nil
     end
@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
 
   def admin_only
     if !admin?
-      flash[:error] = "Only admins can access that page."
+      flash[:error] = "Only Administrators can access that page."
       redirect_to items_path
     end
   end

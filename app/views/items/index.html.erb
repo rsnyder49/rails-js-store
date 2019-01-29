@@ -3,10 +3,17 @@
   <%= link_to 'Create Item Listing', new_item_path, class: "button" %>
 <% end %>
 
-<h2>All Clothing</h2>
+<h3>All Clothing</h3>
 <% @items.each do |item| %>
-  <div class='item-index'><h3><%= item.name %></h3><h4>Price</h4><%= item.price %><h4>In Stock<h4><%= item.quantity %><a href=<%= item.img_url %></a></div>
+  <div class='item-index'>
+    <div class='container'>
+      <a href=<%= item_path(item) %>
+        <h4><%= item.name %></h4>
+        <p><%= item.description %></p>
+        <h4>Price: <%= item.price %>$</h4>
+        <h4>In Stock: <%= item.quantity %></h4>
+        <img src=<%= item.img_url %>>
+      </a>
+    </div>
+  </div>
 <% end %>
-<!-- <div style="display: inline">a</div>
-<div style="display: inline">b</div>
-<div style="display: inline">c</div> -->

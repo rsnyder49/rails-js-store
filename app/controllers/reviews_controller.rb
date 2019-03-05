@@ -11,7 +11,11 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create(user_id: current_user.id, item_id: params[:item_id], content: params[:review][:content])
+
+    @review = Review.new(user_id: current_user.id, item_id: params[:item_id], content: params[:review][:content])
+    @review.item = Item.find(params[:item_id])
+    @review.user = current_user
+    @review.save
 
     redirect_to item_path(params[:item_id])
   # else
@@ -21,16 +25,17 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:item_id])
     @reviews = Review.where(item_id: params[:item_id])
-    @review = Review.find(params[:id])
-    @user = User.find_by(id: @review.user_id)
-    @item = Item.find_by(id: @review.item_id)
+    @review = Review.find(params[:item_id])
+    # @user = User.find_by(id: @review.user_id)
+    # @item = Item.find_by(id: @review.item_id)
   end
 
-  private
-
-  def review_params
-    params.require(:review).permit(:content, :user_id, :item_id)
-  end
+  # private
+  #
+  # def review_params
+  #   params.require(:review).permit(:content, :user_id, :item_id)
+  # end
 
 end

@@ -14,9 +14,10 @@
       <ul class="navbar">
         <li><a href="/">Home</a></li>
         <li><a href="/items">Shop</a></li>
-        <li><%= render "layouts/cart_text" %></li>
+
         <li><a href="/logout">Log Out</a></li>
       </ul>
+      <h1><%= render "layouts/cart_text" %></h1>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>

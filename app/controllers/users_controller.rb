@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       @user = user
       @user.save!
-      redirect_to user_path(@user.id)
+      flash[:success] = "Account Successfully Created!"
+      redirect_to root_path
     else
       @user = user
       redirect_to 'users/new'

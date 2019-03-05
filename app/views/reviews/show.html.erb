@@ -2,7 +2,7 @@
 <% @reviews.each do |review| %>
 <div class='item-index'>
   <div class='container'>
-    <h4><%= @user.username %>'s Review</h4>
+    <h4><%= review.user.username %>'s Review</h4>
     <p><%= review.content %></p>
   </div>
 </div>

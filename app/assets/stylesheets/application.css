@@ -14,7 +14,41 @@
  *= require_self
  */
 
- .alert {
+ .alert-error {
    color: red;
    text-align: center;
  }
+
+.alert-success {
+  color: green;
+  text-align: center;
+}
+
+.button {
+  text-decoration: none;
+  background-color: green;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 10px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: lime;
+}
+
+.back {
+  text-decoration: none;
+  background-color: silver;
+  color: black;
+  border-radius: 4px;
+  padding: 4px 10px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.back:hover {
+  background-color: grey;
+  color: black;
+}
